@@ -31,3 +31,9 @@ const btn : el = {
   id: 123,
   visible: false
 }
+// explique moi
+type User  = { name: string };
+
+type mafunc = (object: User ) => User;
+
+const test: mafunc = (object: User ) => ({ name: object.name });

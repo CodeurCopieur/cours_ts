@@ -13,3 +13,4 @@ var btn = {
     id: 123,
     visible: false
 };
+var test = function (object) { return ({ name: object.name }); };
