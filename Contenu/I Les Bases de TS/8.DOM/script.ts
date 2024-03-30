@@ -10,8 +10,6 @@ const form3 = document.querySelector('.form') as HTMLFormElement;
 // form3 : il faut le as parque la class  .form n'est pas assez précis
 
 
-
-
 form3.addEventListener('submit', handleSubmit)
 
 function handleSubmit(e:Event) {
