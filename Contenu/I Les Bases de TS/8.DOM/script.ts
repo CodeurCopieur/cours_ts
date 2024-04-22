@@ -7,7 +7,7 @@ const form2 = document.querySelector('form') as HTMLFormElement;
 console.log(form2.children);
 
 const form3 = document.querySelector('.form') as HTMLFormElement;
-// form3 : il faut le as parque la class  .form n'est pas assez précis
+// form3 : il faut le as parceque la class  .form n'est pas assez précis
 
 
 form3.addEventListener('submit', handleSubmit)
