@@ -20,9 +20,18 @@ function addContainerListeners (currentContainer: HTMLDivElement) {
    // <button class="add-item-btn">Ajouter un article</button>
    const currentAddItemBtn = currentContainer.querySelector('.add-item-btn') as HTMLButtonElement;
    addItemBtnListeners(currentAddItemBtn)
+
+
+    // <button type="button" class="close-form-btn">X</button>
+    const currentCloseForBtn = currentContainer.querySelector('.close-form-btn') as HTMLButtonElement;
+    closingFormBtnListerner(currentCloseForBtn)
+
+    // <form autocomplete="off"></form>
+    const currentForm = currentContainer.querySelector('form') as HTMLFormElement;
+    addFormSubmitListeners(currentForm)
 }
 
-function deleteBtnListeners (btn  : HTMLButtonElement) {
+function deleteBtnListeners (btn: HTMLButtonElement) {
   btn.addEventListener('click', handleContainerDelete)
 }
 
@@ -60,3 +69,43 @@ function toggleForm(btn: HTMLButtonElement, form: HTMLFormElement, action: Boole
   !action ? (form.style.display = 'none', btn.style.display = 'block') : (form.style.display = 'block', btn.style.display = 'none');
 }
 
+
+// Ajouter un item et le détruire
+
+function closingFormBtnListerner(btn: HTMLButtonElement) {
+  btn.addEventListener('click', () => toggleForm(actualBtn, actualForm, false))
+}
+
+
+function addFormSubmitListeners(form: HTMLFormElement) {
+  form.addEventListener('submit', createNewItem)
+}
+
+function createNewItem(e: Event) {
+  e.preventDefault()
+
+  if (actualTextInuput.value.length === 0) {
+    actualValidation.textContent = "Doit contenir au moins 1 caractère !"
+    return;
+  } else {
+    actualValidation.textContent = ""
+  }
+
+  const itemContent = actualTextInuput.value;
+  const li = `<li class="item" draggable="true"><p>${itemContent}</p><button type="button" class="close-form-btn">X</button></li>`
+
+  actualUL.insertAdjacentHTML('beforeend', li)
+
+  const item = actualUL.lastElementChild as HTMLLIElement;
+  const liBtn = item.querySelector('button') as HTMLButtonElement;
+
+  handleItemDeletion(liBtn)
+  actualTextInuput.value = ""
+}
+
+function handleItemDeletion(btn: HTMLButtonElement) {
+  btn.addEventListener('click', ()=> {
+      const elToRemove = btn.parentElement as HTMLLIElement
+      elToRemove.remove()
+  })
+}
