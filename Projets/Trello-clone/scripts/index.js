@@ -80,3 +80,11 @@ function handleItemDeletion(btn) {
         elToRemove.remove();
     });
 }
+// Ajouter un nouveau container
+const addContainerBtn = document.querySelector('.add-container-btn');
+const addContainerForm = document.querySelector('.add-new-container form');
+const addContainerInput = document.querySelector('.add-new-container Input');
+const validationNewContainer = document.querySelector('.add-new-container .validation-msg');
+const addContainerCloseBtn = document.querySelector('.close-add-list');
+const addNewContainer = document.querySelector('.add-new-container');
+const containerList = document.querySelector('.main-content');

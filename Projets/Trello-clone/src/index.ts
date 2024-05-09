@@ -109,3 +109,15 @@ function handleItemDeletion(btn: HTMLButtonElement) {
       elToRemove.remove()
   })
 }
+
+// Ajouter un nouveau container
+
+const addContainerBtn = document.querySelector('.add-container-btn') as HTMLButtonElement;
+const addContainerForm = document.querySelector('.add-new-container form') as HTMLFormElement;
+const addContainerInput = document.querySelector('.add-new-container Input') as HTMLInputElement;
+const validationNewContainer = document.querySelector('.add-new-container .validation-msg') as HTMLSpanElement; 
+const addContainerCloseBtn = document.querySelector('.close-add-list') as HTMLButtonElement;
+const addNewContainer = document.querySelector('.add-new-container') as HTMLDivElement;
+const containerList = document.querySelector('.main-content') as HTMLDivElement;
+
+
