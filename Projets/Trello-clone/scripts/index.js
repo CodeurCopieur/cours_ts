@@ -88,3 +88,9 @@ const validationNewContainer = document.querySelector('.add-new-container .valid
 const addContainerCloseBtn = document.querySelector('.close-add-list');
 const addNewContainer = document.querySelector('.add-new-container');
 const containerList = document.querySelector('.main-content');
+addContainerBtn.addEventListener('click', () => {
+    toggleForm(addContainerBtn, addContainerForm, true);
+});
+addContainerCloseBtn.addEventListener('click', () => {
+    toggleForm(addContainerBtn, addContainerForm, false);
+});

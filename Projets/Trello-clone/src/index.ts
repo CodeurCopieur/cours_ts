@@ -121,3 +121,10 @@ const addNewContainer = document.querySelector('.add-new-container') as HTMLDivE
 const containerList = document.querySelector('.main-content') as HTMLDivElement;
 
 
+addContainerBtn.addEventListener('click', ()=> {
+  toggleForm(addContainerBtn,addContainerForm,true)
+})
+
+addContainerCloseBtn.addEventListener('click', ()=> {
+  toggleForm(addContainerBtn,addContainerForm,false)
+})
