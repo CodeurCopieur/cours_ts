@@ -94,3 +94,38 @@ addContainerBtn.addEventListener('click', () => {
 addContainerCloseBtn.addEventListener('click', () => {
     toggleForm(addContainerBtn, addContainerForm, false);
 });
+addContainerForm.addEventListener('submit', createNewContainer);
+function createNewContainer(e) {
+    e.preventDefault();
+    if (addContainerInput.value.length === 0) {
+        validationNewContainer.textContent = "Doit contenir au moins 1 caractère !";
+        return;
+    }
+    else {
+        validationNewContainer.textContent = "";
+    }
+    const itemsContainer = document.querySelector('.items-container');
+    const newContainer = itemsContainer.cloneNode();
+    const newContainerContent = `
+    <div class="top-container">
+      <h2>${addContainerInput.value}</h2>
+      <button class="delete-container-btn">X</button>
+    </div>
+    <ul></ul>
+    <button class="add-item-btn">Ajouter un article</button>
+
+    <form autocomplete="off">
+      <div class="top-form-container">
+        <label for="item">Ajouter un nouvelle article</label>
+        <button type="button" class="close-form-btn">X</button>
+      </div>
+      <input type="text" id="item">
+      <span class="validation-msg"></span>
+
+      <button type="submit">Submit</button>
+    </form>`;
+    newContainer.innerHTML = newContainerContent;
+    containerList === null || containerList === void 0 ? void 0 : containerList.insertBefore(newContainer, addNewContainer);
+    addContainerInput.value = "";
+    addContainerListeners(newContainer);
+}
